@@ -1,6 +1,6 @@
 ﻿namespace Domain.Common.Interfaces;
 
-public interface IAuditableEntity : IEntity<T>
+public interface IAuditableEntity<T> : IEntity<T>
 {
     DateTimeOffset Created { get; set; }
 
