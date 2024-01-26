@@ -5,9 +5,10 @@ namespace Domain.Common;
 
 public abstract class BaseEntity<T> : IEntity<T>
 {
-    public T Id { get; set; }
+    // BaseEntity<T> and public T Id to support different key types
+    public required T Id { get; set; }
 
-    private readonly List<BaseEvent> _domainEvents = new();
+    private readonly List<BaseEvent> _domainEvents = [];
 
     [NotMapped]
     public IReadOnlyCollection<BaseEvent> DomainEvents => _domainEvents.AsReadOnly();
